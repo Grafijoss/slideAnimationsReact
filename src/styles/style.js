@@ -22,6 +22,7 @@ export const Slide = styled.div`
   position: fixed;
   transition: 0.2s;
   width: 400px;
+  will-change: left, opacity;
 `;
 
 export const Header = styled.header`

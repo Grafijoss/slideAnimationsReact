@@ -3,13 +3,12 @@ import React, { useEffect, useState } from 'react'
 import { CompetView } from './components/CompetView'
 import { ManagerView } from './components/ManagerView'
 
-import { Slide, Header } from './style'
+import { Slide, Header } from './styles/style'
 
 import './App.css'
 
 function App() {
-  //   const [wrr1, setWrr1] = useState({ type: "exitLeft", initial: false });
-  //   const [wrr2, setWrr2] = useState({ type: "enterRight", initial: false });
+
   const [isAnimation, setIsAnimation] = useState(false)
   const [wrr1, setWrr1] = useState({ type: null, initial: true })
   const [wrr2, setWrr2] = useState({ type: null, initial: false })
