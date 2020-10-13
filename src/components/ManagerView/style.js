@@ -3,14 +3,10 @@ import { slideAnimate } from "./animation";
 
 export const Slide = styled.div`
   ${(props) =>
-    !!props.typeAnimation && !!props.typeAnimation.type
-      ? css`
-          ${slideAnimate({ typeAnimation: props.typeAnimation.type })}
-        `
-      : css`
-          opacity: ${props.typeAnimation.initial ? 1 : 0};
-        `}
-
+    !!props.typeAnimation &&
+    css`
+      ${slideAnimate({ typeAnimation: props.typeAnimation })}
+    `}
   animation-fill-mode: forwards;
   left: 50%;
   margin-left: -180px;

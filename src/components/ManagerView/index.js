@@ -7,7 +7,7 @@ import { WrrpSlider, Slide, WrppButtons } from "./style";
 
 export const ManagerView = ({ prevSlide }) => {
   const [isAnimation, setIsAnimation] = useState(false);
-  const [stepSlide, setStepSlide] = useState({ type: null, initial: true });
+  const [stepSlide, setStepSlide] = useState(null);
   const [currentSlide, setCurrentSlide] = useState("prev");
   const [finishSlide, setfinishSlide] = useState("enter");
   const [indexStep, setIndexStep] = useState(1);
@@ -23,19 +23,13 @@ export const ManagerView = ({ prevSlide }) => {
       setfinishSlide("enter");
       if (currentSlide === "prev") {
         indexStep > 1 && setIndexStep(indexStep - 1);
-        setStepSlide({
-          type: "enterRight",
-          initial: false,
-        });
+        setStepSlide("enterRight");
       } else {
         setIndexStep(indexStep + 1);
-        setStepSlide({
-          type: "enterLeft",
-          initial: false,
-        });
+        setStepSlide("enterLeft");
       }
     } else {
-      setIsAnimation(false);
+      setIsAnimation(false); // the complete animation finished
     }
   };
 
@@ -46,20 +40,14 @@ export const ManagerView = ({ prevSlide }) => {
       setfinishSlide("exit");
       if (value === "prev") {
         if (indexStep > 1) {
-          setStepSlide({
-            type: "exitLeft",
-            initial: false,
-          });
+          setStepSlide("exitLeft");
         } else {
           setIsAnimation(false);
           setfinishSlide("enter");
-          prevSlide("prev");
+          prevSlide("prev"); // function that returns to competview
         }
       } else {
-        setStepSlide({
-          type: "exitRight",
-          initial: false,
-        });
+        setStepSlide("exitRight");
       }
     }
   };
