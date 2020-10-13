@@ -1,4 +1,4 @@
-import { keyframes, css } from 'styled-components'
+import { keyframes, css } from "styled-components";
 
 const exitLeft = keyframes`
 	from {
@@ -10,7 +10,7 @@ const exitLeft = keyframes`
 		left: calc(50% - 180px);
 		opacity: 0;
 	}
-`
+`;
 
 const enterLeft = keyframes`
 	from {
@@ -22,7 +22,7 @@ const enterLeft = keyframes`
 		left: 50%;
 		opacity: 1;
 	}
-`
+`;
 
 const exitRight = keyframes`
 	from {
@@ -34,7 +34,7 @@ const exitRight = keyframes`
 		left: calc(50% + 200px);
 		opacity: 0;
 	}
-`
+`;
 
 const enterRight = keyframes`
 	from {
@@ -46,21 +46,21 @@ const enterRight = keyframes`
 		left: calc(50%);
 		opacity: 1;
 	}
-`
+`;
 
 const typesAnimations = {
   exitLeft,
   enterRight,
   enterLeft,
   exitRight,
-}
+};
 
 export const slideAnimate = ({
-  time = '0.5s',
-  type = 'ease',
+  time = "0.5s",
+  type = "ease",
   typeAnimation,
 } = {}) => {
   return css`
     animation: ${time} ${typesAnimations[typeAnimation]} ${type};
-  `
-}
+  `;
+};

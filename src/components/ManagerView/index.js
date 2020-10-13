@@ -11,28 +11,33 @@ export const ManagerView = ({ prevSlide }) => {
   const [currentSlide, setCurrentSlide] = useState("prev");
   const [finishSlide, setfinishSlide] = useState("enter");
   const [indexStep, setIndexStep] = useState(1);
+  const $step1 = document.getElementById("step1");
 
   useEffect(function () {
-    const $step1 = document.getElementById("step1");
-    $step1.addEventListener("animationend", (event) => {
-      if (finishSlide === "exit") {
-        setfinishSlide("enter");
-        if (currentSlide === "prev") {
-          setStepSlide({
-            type: "enterRight",
-            initial: false,
-          });
-        } else {
-          setStepSlide({
-            type: "enterLeft",
-            initial: false,
-          });
-        }
-      } else {
-        setIsAnimation(false);
-      }
-    });
+    $step1 && $step1.addEventListener("animationend", animation);
   });
+
+  const animation = () => {
+    $step1.removeEventListener("animationend", animation);
+    if (finishSlide === "exit") {
+      setfinishSlide("enter");
+      if (currentSlide === "prev") {
+        indexStep > 1 && setIndexStep(indexStep - 1);
+        setStepSlide({
+          type: "enterRight",
+          initial: false,
+        });
+      } else {
+        setIndexStep(indexStep + 1);
+        setStepSlide({
+          type: "enterLeft",
+          initial: false,
+        });
+      }
+    } else {
+      setIsAnimation(false);
+    }
+  };
 
   const moveStep = (value) => {
     if (!isAnimation) {
@@ -41,7 +46,6 @@ export const ManagerView = ({ prevSlide }) => {
       setfinishSlide("exit");
       if (value === "prev") {
         if (indexStep > 1) {
-          setIndexStep(indexStep - 1);
           setStepSlide({
             type: "exitLeft",
             initial: false,
@@ -52,7 +56,6 @@ export const ManagerView = ({ prevSlide }) => {
           prevSlide("prev");
         }
       } else {
-        setIndexStep(indexStep + 1);
         setStepSlide({
           type: "exitRight",
           initial: false,

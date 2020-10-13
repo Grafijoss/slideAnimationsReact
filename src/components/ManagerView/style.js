@@ -1,7 +1,6 @@
 import styled, { css } from "styled-components";
 import { slideAnimate } from "./animation";
 
-
 export const Slide = styled.div`
   ${(props) =>
     !!props.typeAnimation && !!props.typeAnimation.type
@@ -23,26 +22,25 @@ export const Slide = styled.div`
 `;
 
 export const WrrpSlider = styled.div`
-    height: calc(100% - 50px);
-    border: solid 1px #ccc;
-    overflow: hidden;
-    position: relative;
-    width: 100%;
+  height: calc(100% - 50px);
+  border: solid 1px #ccc;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
 `;
 
 export const WrppButtons = styled.div`
-    color: #fff;
-    height: 40px;
-    position: absolute;
-    right: 20px;
-    top: 10px;
-    width: 100px;
-    button {
-        border: solid 1px #ccc;
-        cursor: pointer;
-        line-height: 40px;
-        margin: 0 5px;
-        width: 40px;
-    }
+  color: #fff;
+  height: 40px;
+  position: absolute;
+  right: 20px;
+  top: 10px;
+  width: 100px;
+  button {
+    border: solid 1px #ccc;
+    cursor: pointer;
+    line-height: 40px;
+    margin: 0 5px;
+    width: 40px;
+  }
 `;
-
